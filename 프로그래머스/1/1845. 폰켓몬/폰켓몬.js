@@ -1,11 +1,10 @@
 function solution(nums) {
-    let arr = new Array(nums.length/2);
+    let arr = []
     let types = [...new Set(nums)];
     
-    for (let i = 0; i < arr.length; i++){
-        arr[i] = types[i];
+    for (let i = 0; i < nums.length/2; i++){
+        if(types[i] !== undefined) arr.push(types[i]);
     }
     
-    let answer = arr.filter(el => el !== undefined)
-    return answer.length
+    return arr.length
 }
