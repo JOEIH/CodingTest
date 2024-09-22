@@ -1,5 +1,4 @@
 function solution(queue1, queue2) {
-    var answer;
     let cnt = 0;
     let length = queue1.length * 3
     
@@ -18,8 +17,7 @@ function solution(queue1, queue2) {
     let queue2_i = 0;
     while(cnt < length) {
         if(sum_one == total && sum_two == total) {
-            answer = cnt
-            return answer;
+            return cnt;
         }
         
         if(sum_one - sum_two < 0) {
@@ -40,7 +38,6 @@ function solution(queue1, queue2) {
         sum_two += shifted;
         queue1_i++;
     }
-
-    answer = -1;
-    return answer;
+    
+    return -1;
 }
