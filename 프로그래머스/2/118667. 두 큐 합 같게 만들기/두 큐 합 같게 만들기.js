@@ -1,43 +1,20 @@
-function solution(queue1, queue2) {
-    let cnt = 0;
-    let length = queue1.length * 3
-    
-    function sum(queue) {
-        return queue.reduce((a,b) => a + b);
-    }
-    
-    let sum_one = sum(queue1);
-    let sum_two = sum(queue2);
-    
-    let total = (sum_one + sum_two) / 2;
-    
-    if(Number.isInteger(total) === false) return -1;
+const solution = (queue1, queue2) => {
+  let sum1 = queue1.reduce((prev, cur) => prev + cur, 0);
+  let sum2 = queue2.reduce((prev, cur) => prev + cur, 0);
+  const half = (sum1 + sum2) / 2;
+  const q = [...queue1, ...queue2];
+  let q1Pointer = 0;
+  let q2Pointer = queue1.length;
 
-    let queue1_i = 0;
-    let queue2_i = 0;
-    while(cnt < length) {
-        if(sum_one == total && sum_two == total) {
-            return cnt;
-        }
-        
-        if(sum_one - sum_two < 0) {
-            cnt += 1;
-            let shifted = queue2[queue2_i];
-            queue1.push(shifted);
-            sum_one += shifted;
-            sum_two -= shifted;
-            queue2_i++;
-
-            continue;
-        } 
-        
-        cnt += 1;
-        let shifted = queue1[queue1_i];
-        queue2.push(shifted);
-        sum_one -= shifted;
-        sum_two += shifted;
-        queue1_i++;
+  for (let cnt = 0; cnt < queue1.length * 3; cnt++) {
+    if (sum1 === half) {
+      return cnt;
     }
-    
-    return -1;
-}
+    sum1 =
+      sum1 > half
+        ? sum1 - q[q1Pointer++ % q.length]
+        : sum1 + q[q2Pointer++ % q.length];
+  }
+
+  return -1;
+};
