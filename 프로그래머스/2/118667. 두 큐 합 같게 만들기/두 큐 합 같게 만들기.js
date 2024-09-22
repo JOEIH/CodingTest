@@ -33,16 +33,12 @@ function solution(queue1, queue2) {
             continue;
         } 
         
-        if (sum_one - sum_two > 0) {
-            cnt += 1;
-            let shifted = queue1[queue1_i];
-            queue2.push(shifted);
-            sum_one -= shifted;
-            sum_two += shifted;
-            queue1_i++;
-
-            continue;
-        }
+        cnt += 1;
+        let shifted = queue1[queue1_i];
+        queue2.push(shifted);
+        sum_one -= shifted;
+        sum_two += shifted;
+        queue1_i++;
     }
 
     answer = -1;
