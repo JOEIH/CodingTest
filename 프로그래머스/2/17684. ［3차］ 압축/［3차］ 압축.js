@@ -23,5 +23,4 @@ function solution(msg) {
 		    word = msg[i];
 	    }
     }
-    return answer;
 }
