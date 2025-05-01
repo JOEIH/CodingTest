@@ -1,27 +1,29 @@
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
 function solution(skill, skill_trees) {
-    let answer = 0; // 가능한 스킬트리 개수
-    
-    function validation(item) {
-        let skill_check = ''
-        
-        for (let i of item) {
-            let index = skill.indexOf(i)
-            
-            if (index != -1) {
-                skill_check += i
-            }
+    function isCorrect(n) {
+        // const test = '[' + 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').filter(v => !skill.includes(v)).join('') + ']*';
+        let test = skill.split('');
+        for (var i = 0; i < n.length; i++) {
+            if (!skill.includes(n[i])) continue;
+            if (n[i] === test.shift()) continue;
+            return false;
         }
-        
-        return skill_check
-    }
-  
-    for (let i = 0; i < skill_trees.length; i++) {
-        if (skill.includes(validation(skill_trees[i]))) {
-            if(skill.indexOf(validation(skill_trees[i])) == 0) {
-            answer += 1
-        }
-        }
-    }
-    
-    return answer;
+        return true;
+    }    
+
+    return skill_trees.filter(isCorrect).length;
 }
