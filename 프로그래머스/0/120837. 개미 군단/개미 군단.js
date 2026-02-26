@@ -1,11 +1,11 @@
 function solution(hp) {
     let general = Math.floor(hp / 5);
     
-    hp -= general * 5
+    hp %= 5
     
     let soldier = hp >= 3 ? Math.floor(hp / 3) : 0;
     
-    hp -= soldier * 3
+    hp %= 3
     
     let normal = hp;
        
