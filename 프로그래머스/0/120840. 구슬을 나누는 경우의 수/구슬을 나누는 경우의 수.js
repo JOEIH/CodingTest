@@ -12,5 +12,5 @@ function solution(balls, share) {
     
     const answer = ballsArr.slice(balls-share).reduce((acc, cur)  => acc * cur) / shareArr.reduce((acc, cur) => acc * cur)
     
-    return parseInt(answer);
+    return Math.round(answer);
 }
