@@ -1,7 +1,6 @@
 function solution(balls, share) {
     let ballsArr = []
     let shareArr = []
-    let remainArr = []
     
     for (let i = 1; i <= balls; i++) {
         ballsArr.push(i)
