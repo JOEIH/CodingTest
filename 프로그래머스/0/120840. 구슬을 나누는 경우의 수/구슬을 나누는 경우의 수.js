@@ -1,16 +1,9 @@
 function solution(balls, share) {
-    let ballsArr = []
-    let shareArr = []
+    let answer = 1;
     
-    for (let i = 1; i <= balls; i++) {
-        ballsArr.push(i)
+    for (let i = 0; i < share; i++) {
+        answer *= (balls-i) / (i + 1)
     }
     
-    for (let k = 1; k <= share; k++) {
-        shareArr.push(k)
-    }
-    
-    const answer = ballsArr.slice(balls-share).reduce((acc, cur)  => acc * cur) / shareArr.reduce((acc, cur) => acc * cur)
-    
-    return Math.round(answer);
+    return Math.round(answer)
 }
