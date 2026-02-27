@@ -1,10 +1,7 @@
 function solution(numbers, k) {
-    let curr = 0
+    // 공을 넘겨준 횟수: k - 1
+    // 한 번에 이동하는 칸 수: 2
+    // 총 이동한 칸 수: (k - 1) * 2
     
-    while (k - 1 > 0) {
-        k--;
-        curr = (curr + 2) % numbers.length
-    }
-    
-    return numbers[curr]
+    return numbers[((k - 1) * 2) % numbers.length];
 }
