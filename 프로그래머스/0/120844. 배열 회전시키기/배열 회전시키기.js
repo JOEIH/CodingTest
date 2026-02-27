@@ -1,9 +1,9 @@
 function solution(numbers, direction) {
     if (direction === "right") {
-        let last = numbers.pop()
-        return [last, ...numbers]
+        numbers.unshift(numbers.pop())
+    } else {
+        numbers.push(numbers.shift())
     }
     
-    let first = numbers.shift()
-    return [...numbers, first]
+    return numbers
 }
