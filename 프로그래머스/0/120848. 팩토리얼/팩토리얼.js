@@ -1,18 +1,13 @@
 function solution(n) {
-    var answer = 0;
-    //팩토리얼 결과값 저장할 store
-    let store = 1;
+    let num = 1
+    let store = 1
     
-    while(store <= n) {
-        answer++;
-        store *= answer;
+    while (store < n) {
+        if (store * (num + 1) > n) return num
+        num++
+        store *= num
     }
     
-    if (store == n) {
-        return answer;
-    } else if (store/answer < n < store) {
-        return answer - 1;
-    }
-     
+    return num
 }
 
