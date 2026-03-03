@@ -1,19 +1,17 @@
 function solution(n) {
     var answer = 0
     for (let i = 2; i <= n; i++) {
-        let num = Math.sqrt(i)
-        let count = 0
+        let num = Math.sqrt(i);
+        let isComposite = false;
         
-        if (Number.isInteger(num)) {
-            answer++
-            continue
+        for (let j = 2; j <= Math.floor(num); j++) {
+            if (i % j == 0) {
+                isComposite = true
+                break;
+            }
         }
         
-        for (let j = 1; j <= Math.floor(num); j++) {
-            if (i % j == 0) count++
-        }
-        
-        if (count >= 2) answer++
+        if (isComposite) answer++
     }
     return answer;
 }
