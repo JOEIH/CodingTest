@@ -1,6 +1,3 @@
 function solution(box, n) {
-    const count = (length) => Math.floor(length / n);
-    const [w, h, d] = box;
-
-    return count(w) * count(h) * count(d);
+    return box.reduce((acc, length) => acc * Math.floor(length / n), 1);
 }
