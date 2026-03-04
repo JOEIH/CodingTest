@@ -1,24 +1,14 @@
 function solution(n) {
     var answer = []
-    let devide = (n, num) => n % num ? n : devide(n / num, num)
-  
-    const decimal = [2, 3, 5, 7, 11, 13, 17]
     
-    for (let i = 0; i < decimal.length; i++) {
-        if (n % decimal[i] === 0) {
-            answer.push(decimal[i])
-            n = devide(n, decimal[i])
+    for (let i = 2; i * i <= n; i++) {
+        if (n % i === 0) {
+            answer.push(i)
+            while (n % i === 0) {
+                n = n / i
+            }
         }
     }
-    
-    if (n > 17) {
-      for (let i = 19; i < n; i++) {
-          if (n % i === 0) {
-            answer.push(i)
-            n = devide(n, i)
-          }
-      }  
-    } 
     
     if (n > 1) answer.push(n)
     
