@@ -1,10 +1,7 @@
 function solution(my_string) {
     const deleteW = ['a', 'e', 'i', 'o', 'u'];
-    let answer = my_string.split('')
+    return my_string.split('').filter((v) => !deleteW.includes(v)).join('')
     
-    for (let i of deleteW) {
-        answer = answer.filter((v) => !deleteW.includes(v))
-    }
     
-    return answer.join('')
+     
 }
