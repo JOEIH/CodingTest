@@ -1,14 +1,15 @@
 function solution(s) {
-    let sum = 0
-    let arr = s.split(' ')
+    // 스택을 사용한 풀이
+    const arr = s.split(' ')
+    let stack = []
     
-    for (let i in arr) {
-        if (arr[i] === 'Z') {
-            sum -= parseInt(arr[i-1])
+    for (let cur of arr) {
+        if (cur === 'Z') {
+            stack.pop()
             continue
         }
-        sum += parseInt(arr[i])
+        stack.push(parseInt(cur))
     }
     
-    return sum
+    return stack.reduce((acc, cur) => acc + cur, 0)
 } 
