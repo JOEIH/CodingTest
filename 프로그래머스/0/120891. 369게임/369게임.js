@@ -1,19 +1,4 @@
 function solution(order) {
-    var answer = 0
-    const arr = order.toString().split('')
-    
-    for (let i of arr) {
-        if (i === '9') {
-            answer += 1
-            continue
-        } else if (i === '6') {
-            answer += 1
-            continue
-        } else if (i === '3') {
-            answer += 1
-            continue
-        }
-    }
-    
-    return answer
+    const numSet = new Set([3, 6, 9])
+    return order.toString().split('').filter(v => numSet.has(Number(v))).length
 }
