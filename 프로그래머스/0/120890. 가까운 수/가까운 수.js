@@ -1,12 +1,4 @@
 function solution(array, n) {
-    const arr = [...new Set(array.sort((a, b) => a - b))];
-    
-    let answer = arr[0]
-    for (let i = 1; i < arr.length; i++) {
-        let cur = Math.abs(answer - n);
-        if (Math.abs(n - arr[i]) >= cur) break;
-        answer = arr[i];
-    }
-    
-    return answer
+    // 거리를 기준으로 오름차순 정렬하고, 거리가 같다면 숫자 크기를 기준으로 오름차순 정렬
+    return array.sort((a, b) => Math.abs(a - n) - Math.abs(b - n) || a - b)[0];
 }
