@@ -1,19 +1,8 @@
 function solution(spell, dic) {
-    let answer = 2;
+    // dic을 순회하며 조건을 만족하는 단어가 하나라도 있는지(some) 검사
+    const isExist = dic.some(word => 
+        word.length === spell.length && spell.every(c => word.includes(c))
+    );
     
-    let spellSet = new Set(spell);
-    let curSet = new Set()
-    
-    dic.forEach(v => { 
-        for (let ch of v) {
-            if (spellSet.has(ch)) curSet.add(ch)
-        }
-        if (spellSet.size === curSet.size) {
-            return answer = 1;
-        } else {
-            curSet.clear();
-        }
-    })
-
-    return answer;
+    return isExist ? 1 : 2;
 }
