@@ -1,8 +1,7 @@
 function solution(a, b) {
-    const gcd = (a, b) => a % b === 0 ? b : gcd(b, a % b);
-    const calculated = gcd(a, b);
+    const gcd = (a, b) => b === 0 ? a : gcd(b, a % b);
     
-    let lower = b / calculated;
+    let lower = b / gcd(a, b);
 
     while (lower % 2 === 0) {
         lower /= 2;
