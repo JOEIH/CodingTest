@@ -1,5 +1,14 @@
 function solution(score) {
-    let copy = [...score].map(v => v[0] + v[1]);
-    let sorted = [...copy].sort((a, b) => b - a);
-    return copy.map(v => sorted.indexOf(v) + 1);
+    const totals = score.map(v => v[0] + v[1]);
+    const sortedTotals = [...totals].sort((a, b) => b - a);
+    
+    const rankMap = new Map();
+    
+    sortedTotals.forEach((score, index) => {
+        if (!rankMap.has(score)) {
+            rankMap.set(score, index + 1);
+        }
+    });
+    
+    return totals.map(score => rankMap.get(score));
 }
