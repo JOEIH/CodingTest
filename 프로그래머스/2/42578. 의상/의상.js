@@ -5,8 +5,8 @@ function solution(clothes) {
         obj[type] = (obj[type] || 0) + 1;
     }
     
-    for (let i of Object.values(obj)) {
-        answer *= (i + 1);
+    for (let key in obj) {
+        answer *= (obj[key] + 1);
     }
     
     return answer - 1;
