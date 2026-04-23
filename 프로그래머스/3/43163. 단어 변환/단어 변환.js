@@ -45,6 +45,6 @@ function solution(begin, target, words) {
         answer++;
     }
     
-    return answer;
+    return 0;
 }
 
