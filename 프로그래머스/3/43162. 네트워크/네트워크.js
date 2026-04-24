@@ -3,7 +3,6 @@ function solution(n, computers) {
     let visited = new Set();
     
     function dfs(node) {
-        visited.add(node);
         for (let i = 0; i < n; i++) {
             if (computers[node][i] && !visited.has(i)) {
                 visited.add(i);
